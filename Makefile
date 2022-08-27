@@ -68,7 +68,7 @@ all: $(TARGET).elf $(TARGET).hex $(TARGET).lss tags
 .PHONY: prog 
 
 prog: all 
-	avrdude -pm128 -cstk500v2 -b115200 -P/dev/ttyUSB0 -u -V -U flash:w:$(TARGET).hex:i 
+	avrdude -p m128 -c usbasp -U flash:w:$(TARGET).hex:i 
 
 # Create final output files (.hex) from ELF output file.
 %.hex: %.elf

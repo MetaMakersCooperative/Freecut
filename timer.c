@@ -41,7 +41,7 @@ volatile uint8_t flag_25Hz;
 /*
  * called @250 Hz, divide further in software for slow events 
  */
-SIGNAL( SIG_OUTPUT_COMPARE0 ) 
+ISR( TIMER0_COMP_vect ) 
 {
     if( --count_25Hz == 0 )
     {
@@ -58,7 +58,7 @@ SIGNAL( SIG_OUTPUT_COMPARE0 )
 /*
  * Timer 2 compare match, update stepper motors.
  */
-SIGNAL( SIG_OUTPUT_COMPARE2 ) 
+ISR( TIMER2_COMP_vect ) 
 {
     stepper_tick( );
 }        

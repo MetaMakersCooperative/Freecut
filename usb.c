@@ -43,7 +43,7 @@ volatile static uint8_t usb_rx_tail = 0;
 /* 
  * transmit interrupt handler
  */
-SIGNAL( SIG_UART1_DATA ) 
+ISR( USART1_UDRE_vect )
 {
     if( usb_tx_tail == usb_tx_head )
         UCSR1B &= ~(1 << UDRIE1);
@@ -54,7 +54,7 @@ SIGNAL( SIG_UART1_DATA )
 /*
  * receive interrupt handler
  */
-SIGNAL( SIG_UART1_RECV )
+ISR( USART1_RX_vect ) 
 {
     char c = UDR1;
 
