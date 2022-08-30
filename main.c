@@ -27,18 +27,27 @@
 #include <inttypes.h>
 #include <stdio.h>
 #include "lcd.h"
+#include "timer.h"
 #include "version.h"
 
-int	dummyVar;
+int dummy_var;
 
 int main( void )
 {
+
+
+    timer_init( );
     lcd_init( );
+
+    // short beep to show we're awake
+    beeper_on( 1760 );
+    msleep( 10 );
+    beeper_off( );
 
     // connect stdout to USB port
     fprintf( &lcd, "Freecut v" VERSION );
     while( 1 )
     {
-	dummyVar = 0;
+        dummy_var = 0;
     }
 }

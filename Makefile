@@ -14,7 +14,7 @@ TARGET = freecut
 FCLK = 16000000UL
 
 # List C source files here. (C dependencies are automatically generated.)
-SRC = main.c lcd.c 
+SRC = main.c lcd.c timer.c
 
 # Assembler sources 
 ASRC = 
