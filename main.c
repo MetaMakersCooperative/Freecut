@@ -44,7 +44,7 @@ int main( void )
     msleep( 10 );
     beeper_off( );
 
-    // connect stdout to USB port
+    // print to LCD screen the version.
     fprintf( &lcd, "Freecut v" VERSION );
     while( 1 )
     {
